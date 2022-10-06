@@ -22,7 +22,7 @@ export default function loginRoute(req, res) {
       x.username === username && bcrypt.compareSync(password,x.password)
     })
     if(!finduser){
-      return res.status(400).json({ok:"false",message:"Invalid Username or Password"})
+      return res.status(400).json({ok:false,message:"Invalid Username or Password"})
     }
 
     // return res.status(400).json({ ok: false, message: "Invalid Username or Password" });
@@ -41,7 +41,7 @@ export default function loginRoute(req, res) {
       
     )
     return res.json({
-      ok:"true",
+      ok:true,
       username,
       isAdmin:finduser.isAdmin,
       token
